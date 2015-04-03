@@ -25,9 +25,11 @@ void *task(void *x){
   tid = *((int *) x);
   printf("Thread %d\n", tid);
   unsigned long long int i=3+tid;
-  while((collatzFuction(i)!=1234)&&(terminalSignal==0)){
+  int n=collatzFuction(i);
+  while((n!=1234)&&(terminalSignal==0)){
     i+=NTHREADS;
-    if(terminalSignal==1){return NULL;}
+    n=collatzFuction(i);
+    if(((terminalSignal==1)||(n<0))){return NULL;}
   }
   printf("number=%llu\n",i);
   terminalSignal=1;
