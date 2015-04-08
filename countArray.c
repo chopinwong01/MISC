@@ -40,7 +40,7 @@ int *countArray(char* filename){
 
 int main(int argc, char* argv[]){
   int *r;
-  r=(char*)calloc(100,sizeof(int));
+  r=(int*)calloc(100,sizeof(int));
   r=countArray(argv[1]);
   printf("(%d characters)\n",r[26]);
 
